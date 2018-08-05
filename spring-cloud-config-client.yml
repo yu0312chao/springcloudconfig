@@ -1,3 +1,5 @@
+server:
+  port: 8201
 spring:
   profiles:
     active:
@@ -12,6 +14,8 @@ eureka:
     service-url:
       defaultZone: http://admin:yuchaojava@dev-7001.com:7001/eureka
 ---
+server:
+  port: 8202
 spring:
   profiles: beta
   application:
