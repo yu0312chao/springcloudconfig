@@ -1,0 +1,48 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: spring-cloud-eureka-config
+server:
+   port: 7001
+
+security:
+   basic:
+      enabled: true #启动安全认证
+   user:
+      name: eadmin
+      password: yuchaojava
+eureka:
+  instance:
+     hostname: eureka-7001.com
+  client: # 客户端进行Eureka注册配置
+    register-with-eureka: false # 当前的微服务不注册到eureka中
+    fetch-registry: false # 不通过eureka获取注册信息
+    service-url:
+      defaultZone: http://eadmin:yuchaojava@eureka-7001.com:7001/eureka
+---
+spring:
+   profiles: beta
+   application:
+      name: spring-cloud-eureka-7001
+server:
+  port: 7001
+  
+security:
+   basic:
+      enabled: true #启动安全认证
+   user:
+      name: eadmin
+      password: yuchaojava
+eureka:
+  instance:
+     hostname: eureka-7001.com
+  client: # 客户端进行Eureka注册配置
+    register-with-eureka: false # 当前的微服务不注册到eureka中
+    fetch-registry: false # 不通过eureka获取注册信息
+    service-url:
+      defaultZone: http://admin:yuchaojava@eureka-7001.com:7001/eureka
