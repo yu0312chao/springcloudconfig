@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: yuchaoconfig-test-dev
+    
+---
+spring:
+  profiles: defalut
+  application:
+    name: yuchaoconfig-test-default
