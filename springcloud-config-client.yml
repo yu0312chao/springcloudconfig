@@ -1,0 +1,26 @@
+server:
+  port: 8201
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: spring-cloud-config-client
+eureka: 
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://admin:yuchaojava@dev-7001.com:7001/eureka
+---
+server:
+  port: 8202
+spring:
+  profiles: beta
+  application:
+    name: spring-cloud-config-client
+eureka: 
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://admin:yuchaojava@beta-7001.com:7001/eureka
