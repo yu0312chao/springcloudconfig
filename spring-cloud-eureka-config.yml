@@ -5,44 +5,42 @@ spring:
 ---
 spring:
   profiles: dev
-  application:
-    name: spring-cloud-eureka-config
-server:
-   port: 7001
-
-security:
-   basic:
-      enabled: true #Æô¶¯°²È«ÈÏÖ¤
-   user:
-      name: eadmin
-      password: yuchaojava
-eureka:
-  instance:
-     hostname: eureka-7001.com
-  client: # ¿Í»§¶Ë½øĞĞEureka×¢²áÅäÖÃ
-    register-with-eureka: false # µ±Ç°µÄÎ¢·şÎñ²»×¢²áµ½eurekaÖĞ
-    fetch-registry: false # ²»Í¨¹ıeureka»ñÈ¡×¢²áĞÅÏ¢
-    service-url:
-      defaultZone: http://eadmin:yuchaojava@eureka-7001.com:7001/eureka
----
-spring:
-   profiles: beta
-   application:
-      name: spring-cloud-eureka-7001
+  application: 
+    name: microcloud-config-eureka-client
 server:
   port: 7001
-  
 security:
-   basic:
-      enabled: true #Æô¶¯°²È«ÈÏÖ¤
-   user:
-      name: eadmin
-      password: yuchaojava
-eureka:
-  instance:
-     hostname: eureka-7001.com
-  client: # ¿Í»§¶Ë½øĞĞEureka×¢²áÅäÖÃ
-    register-with-eureka: false # µ±Ç°µÄÎ¢·şÎñ²»×¢²áµ½eurekaÖĞ
-    fetch-registry: false # ²»Í¨¹ıeureka»ñÈ¡×¢²áĞÅÏ¢
+  basic:
+    enabled: true   # å¯ç”¨å®‰å…¨è®¤è¯å¤„ç†
+  user:
+    name: edmindev     # ç”¨æˆ·å
+    password: mldnjava  # å¯†ç 
+eureka: 
+  client: # å®¢æˆ·ç«¯è¿›è¡ŒEurekaæ³¨å†Œçš„é…ç½®
     service-url:
-      defaultZone: http://admin:yuchaojava@eureka-7001.com:7001/eureka
+      defaultZone: http://edmindev:mldnjava@eureka-7001.com:7001/eureka
+    register-with-eureka: false    # å½“å‰çš„å¾®æœåŠ¡ä¸æ³¨å†Œåˆ°eurekaä¹‹ä¸­
+    fetch-registry: false     # ä¸é€šè¿‡eurekaè·å–æ³¨å†Œä¿¡æ¯
+  instance: # eureakå®ä¾‹å®šä¹‰
+    hostname: eureka-7001.com # å®šä¹‰Eurekaå®ä¾‹æ‰€åœ¨çš„ä¸»æœºåç§°
+---
+spring:
+  profiles: beta
+  application: 
+    name: microcloud-config-eureka-client
+server:
+  port: 7001
+security:
+  basic:
+    enabled: true   # å¯ç”¨å®‰å…¨è®¤è¯å¤„ç†
+  user:
+    name: edminbeta     # ç”¨æˆ·å
+    password: mldnjava  # å¯†ç 
+eureka: 
+  client: # å®¢æˆ·ç«¯è¿›è¡ŒEurekaæ³¨å†Œçš„é…ç½®
+    service-url:
+      defaultZone: http://edminbeta:mldnjava@eureka-7001.com:7001/eureka
+    register-with-eureka: false    # å½“å‰çš„å¾®æœåŠ¡ä¸æ³¨å†Œåˆ°eurekaä¹‹ä¸­
+    fetch-registry: false     # ä¸é€šè¿‡eurekaè·å–æ³¨å†Œä¿¡æ¯
+  instance: # eureakå®ä¾‹å®šä¹‰
+    hostname: eureka-7001.com # å®šä¹‰Eurekaå®ä¾‹æ‰€åœ¨çš„ä¸»æœºåç§°
